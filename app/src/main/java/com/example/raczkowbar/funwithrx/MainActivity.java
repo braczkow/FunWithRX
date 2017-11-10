@@ -1,5 +1,6 @@
 package com.example.raczkowbar.funwithrx;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String RX_TAG = "rx2";
 
     PublishSubject<Integer> m_publisher = PublishSubject.create();
@@ -63,32 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Observable.fromCallable(new Callable<Integer>() {
-            @Override
-            public Integer call() throws Exception {
-                Timber.d("return integer");
-                return 1;
-            }
-        })
-
-                .map(new Function<Integer, String>() {
-                    @Override
-                    public String apply(Integer integer) throws Exception {
-                        Timber.d("map to string");
-                        return String.valueOf(integer);
-                    }
-                })
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(new Consumer<String>() {
-                    @Override
-                    public void accept(String s) throws Exception {
-                        Timber.d("accept: " + s);
-                    }
-                })
-                .subscribe();
-
-
+        startActivity(new Intent(getApplicationContext(), SchedulersExamplesActivity.class));
     }
 
     private void test_publishSubject() {

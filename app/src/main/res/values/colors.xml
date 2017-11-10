@@ -3,4 +3,36 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- R2 Visual Design -->
+    <color name="r2_vivid_blue">#00BCE8</color>
+    <color name="r2_vivid_blue_30">#4D00BCE8</color>
+    <color name="r2_vivid_blue_light">#B4ECF4</color>
+    <color name="r2_vivid_blue_lighter">#E5F9FD</color>
+    <color name="r2_vivid_blue_19">#1900C2E0</color>
+    <color name="r2_vivid_blue_19_grayscaled">#199b9b9b</color>
+    <color name="r2_vivid_blue_percent_30">#4D00C2E0</color>
+    <color name="r2_vivid_gray">#92a3bb</color>
+    <color name="r2_ftu_glow">#4000c2e0</color>
+    <color name="r2_green">#0AC974</color>
+    <color name="r2_dark_blue">#2A4D77</color>
+    <color name="r2_amber_yellow">#FFDD54</color>
+    <color name="r2_alert_red">#FC292E</color>
+    <color name="r2_light_gray">#9B9B9B</color>
+    <color name="r2_light_text">#36618A</color>
+    <color name="r2_grey">#9B9B9B</color>
+    <color name="r2_grey_30">#4d9B9B9B</color>
+    <color name="r2_dark_blue_light">#67809D</color>
+    <color name="r2_message_sent_background">#CCF2FA</color>
+    <color name="r2_message_sent_text">#2A4D77</color>
+    <color name="r2_message_receive_background">#2A4D77</color>
+    <color name="r2_message_receive_text">#FFFFFF</color>
+    <color name="r2_message_system_background">#FFF9E2</color>
+    <color name="r2_message_info_background">#F6F6F6</color>
+    <color name="r2_message_info_text">#2A4D77</color>
+    <color name="r2_amber_background">#FFF9E2</color>
+    <color name="r2_divider_grey">#F2F2F2</color>
+    <color name="r2_connections_background">#fbfbfb</color>
+    <color name="r2_list_shadow">#12000000</color>
 </resources>
