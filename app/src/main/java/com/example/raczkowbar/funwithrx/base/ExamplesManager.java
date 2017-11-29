@@ -1,4 +1,4 @@
-package com.example.raczkowbar.funwithrx.examples;
+package com.example.raczkowbar.funwithrx.base;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,6 @@ import com.example.raczkowbar.funwithrx.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

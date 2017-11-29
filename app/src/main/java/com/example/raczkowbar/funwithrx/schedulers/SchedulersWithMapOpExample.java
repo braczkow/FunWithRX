@@ -1,6 +1,6 @@
-package com.example.raczkowbar.funwithrx.examples;
+package com.example.raczkowbar.funwithrx.schedulers;
 
-import com.example.raczkowbar.funwithrx.examples.ExecutableExample;
+import com.example.raczkowbar.funwithrx.base.ExecutableExample;
 
 import java.util.concurrent.Callable;
 

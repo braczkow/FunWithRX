@@ -1,15 +1,14 @@
 package com.example.raczkowbar.funwithrx;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import com.example.raczkowbar.funwithrx.schedulers.SchedulersExamplesActivity;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -19,7 +18,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
-import timber.log.Timber;
 
 public class MainActivity extends BaseActivity {
     private static final String RX_TAG = "rx2";

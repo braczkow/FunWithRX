@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SchedulersExamplesActivity"
+            android:name=".schedulers.SchedulersExamplesActivity"
             android:label="@string/title_activity_schedulers"
             ></activity>
     </application>

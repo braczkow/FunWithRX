@@ -1,14 +1,11 @@
-package com.example.raczkowbar.funwithrx;
+package com.example.raczkowbar.funwithrx.schedulers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.raczkowbar.funwithrx.examples.ExamplesManager;
-import com.example.raczkowbar.funwithrx.examples.SchedulersPublisher2Example;
-import com.example.raczkowbar.funwithrx.examples.SchedulersPublisherExample;
-import com.example.raczkowbar.funwithrx.examples.SchedulersWithMapOp2Example;
-import com.example.raczkowbar.funwithrx.examples.SchedulersWithMapOpExample;
+import com.example.raczkowbar.funwithrx.R;
+import com.example.raczkowbar.funwithrx.base.ExamplesManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +26,7 @@ public class SchedulersExamplesActivity extends AppCompatActivity {
         m_examplesManager.addExample(new SchedulersWithMapOp2Example());
         m_examplesManager.addExample(new SchedulersPublisherExample());
         m_examplesManager.addExample(new SchedulersPublisher2Example());
+        m_examplesManager.addExample(new FlatMapExample());
     }
 
 }

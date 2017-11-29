@@ -1,12 +1,8 @@
-package com.example.raczkowbar.funwithrx.examples;
+package com.example.raczkowbar.funwithrx.schedulers;
 
-import android.support.annotation.NonNull;
+import com.example.raczkowbar.funwithrx.base.ExecutableExample;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -31,8 +27,7 @@ public class SchedulersWithMapOp2Example extends ExecutableExample {
                 return 1;
             }
         })
-
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
                 .map(new Function<Integer, String>() {
                     @Override
                     public String apply(Integer integer) throws Exception {
@@ -40,7 +35,7 @@ public class SchedulersWithMapOp2Example extends ExecutableExample {
                         return String.valueOf(integer + 2);
                     }
                 })
-                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
