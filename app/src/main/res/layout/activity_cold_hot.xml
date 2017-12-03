@@ -10,21 +10,17 @@
     >
 
     <TextView
-        android:id="@+id/main_start_dispose"
+        android:id="@+id/coldhot_subscribe"
         style="@style/TextAppearanceDefault.Button"
         android:layout_marginTop="20dp"
-        android:text="# disposables" />
+        android:text="# subscribe hot" />
 
     <TextView
-        android:id="@+id/main_start_schedulers"
+        android:id="@+id/coldhot_subscribe_cold"
         style="@style/TextAppearanceDefault.Button"
         android:layout_marginTop="20dp"
-        android:text="# schedulers" />
+        android:text="# subscribe cold" />
 
-    <TextView
-        android:id="@+id/main_start_coldhot"
-        style="@style/TextAppearanceDefault.Button"
-        android:layout_marginTop="20dp"
-        android:text="# cold vs hot" />
+
 
 </LinearLayout>

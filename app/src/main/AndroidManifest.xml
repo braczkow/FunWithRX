@@ -20,7 +20,8 @@
         <activity
             android:name=".schedulers.SchedulersExamplesActivity"
             android:label="@string/title_activity_schedulers" />
-        <activity android:name=".dispose.DisposeActivity"></activity>
+        <activity android:name=".dispose.DisposeActivity" />
+        <activity android:name=".coldhot.ColdHotActivity"></activity>
     </application>
 
 </manifest>

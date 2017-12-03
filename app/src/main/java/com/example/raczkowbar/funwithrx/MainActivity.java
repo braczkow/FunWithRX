@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.raczkowbar.funwithrx.coldhot.ColdHotActivity;
 import com.example.raczkowbar.funwithrx.dispose.DisposeActivity;
 import com.example.raczkowbar.funwithrx.schedulers.SchedulersExamplesActivity;
 
@@ -40,5 +41,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.main_start_schedulers)
     public void onStartSchedulersClicked() {
         startActivity(new Intent(this, SchedulersExamplesActivity.class));
+    }
+
+    @OnClick(R.id.main_start_coldhot)
+    public void onColdhotClicked() {
+        startActivity(new Intent(this, ColdHotActivity.class));
     }
 }
