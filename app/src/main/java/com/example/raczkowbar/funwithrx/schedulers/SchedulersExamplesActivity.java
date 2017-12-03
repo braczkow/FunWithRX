@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.raczkowbar.funwithrx.BaseActivity;
 import com.example.raczkowbar.funwithrx.R;
 import com.example.raczkowbar.funwithrx.base.ExamplesManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SchedulersExamplesActivity extends AppCompatActivity {
+public class SchedulersExamplesActivity extends BaseActivity {
     @BindView(R.id.examples_recycler)
     RecyclerView m_examplesRecycler;
     private ExamplesManager m_examplesManager;

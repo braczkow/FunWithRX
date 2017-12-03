@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.raczkowbar.funwithrx.BaseActivity;
 import com.example.raczkowbar.funwithrx.R;
 import com.example.raczkowbar.funwithrx.base.CustomDisposableObserver;
 
@@ -23,7 +24,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-public class DisposeActivity extends AppCompatActivity {
+public class DisposeActivity extends BaseActivity {
 
     @BindView(R.id.dispose_start_nodispose)
     public TextView m_startSingleText;
