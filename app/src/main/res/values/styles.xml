@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextAppearanceDefault">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/r2_message_info_text</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearanceDefault.Button">
+        <item name="android:background">@color/r2_divider_grey</item>
+
+    </style>
+
 </resources>

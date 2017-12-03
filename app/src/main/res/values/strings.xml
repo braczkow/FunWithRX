@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FunWithRX</string>
     <string name="title_activity_schedulers">SchedulersActivity</string>
+    <string name="snackbar_content">Yeah, I\'m a snackbar</string>
 </resources>
