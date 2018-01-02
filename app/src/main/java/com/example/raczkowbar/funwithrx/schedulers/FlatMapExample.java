@@ -24,20 +24,11 @@ public class FlatMapExample extends ExecutableExample {
 
     private int counter = 0;
 
+    Observable<String> someApi(String s) {
+        return Observable.fromArray(s.split(" "));
+    }
+
     @Override
     public void execute() {
-        Observable.just("Separate me. One word each!")
-                .flatMap(new Function<String, ObservableSource<String>>() {
-                    @Override
-                    public ObservableSource<String> apply(String s) throws Exception {
-                        return Observable.fromArray(s.split(" "));
-                    }
-                })
-                .subscribeWith(new CustomDisposableObserver<String>(){
-                    @Override
-                    public void onNext(@NonNull String s) {
-                        Timber.d("#%d item: %s", counter++, s);
-                    }
-                });
     }
 }

@@ -1,14 +1,18 @@
 package com.example.raczkowbar.funwithrx;
 
 import android.app.Application;
+import android.arch.persistence.room.Room;
 import android.support.annotation.NonNull;
 
 import com.example.raczkowbar.funwithrx.base.CustomDisposableObserver;
+import com.example.raczkowbar.funwithrx.db.AppDb;
 import com.example.raczkowbar.funwithrx.debounce.LifecycleObserver;
 
 import timber.log.Timber;
 
 public class App extends Application {
+    public static AppDb DB;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -19,6 +23,11 @@ public class App extends Application {
                 return "BRBR (" + Thread.currentThread().getName() + ") " + super.createStackElementTag(element);
             }
         });
+
+        DB = Room
+                .databaseBuilder(getApplicationContext(), AppDb.class, "history.db")
+                .build();
+
 
         LifecycleObserver.get().getAppStateRx()
                 .subscribeWith(new CustomDisposableObserver<LifecycleObserver.AppState>(){

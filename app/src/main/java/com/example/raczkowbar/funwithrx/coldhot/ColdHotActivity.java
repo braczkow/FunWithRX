@@ -39,23 +39,30 @@ public class ColdHotActivity extends BaseActivity {
     private void createColdTimeout() {
         m_coldTimeout = Observable
                 .timer(10, TimeUnit.SECONDS)
-                .flatMap(new Function<Long, ObservableSource<Boolean>>() {
+                .map(new Function<Long, Boolean>() {
                     @Override
-                    public ObservableSource<Boolean> apply(@NonNull Long aLong) throws Exception {
-                        return Observable.just(true);
+                    public Boolean apply(Long aLong) throws Exception {
+                        return true;
                     }
                 })
                 .subscribeOn(AndroidSchedulers.mainThread());
+//                .flatMap(new Function<Long, ObservableSource<Boolean>>() {
+//                    @Override
+//                    public ObservableSource<Boolean> apply(@NonNull Long aLong) throws Exception {
+//                        return Observable.just(true);
+//                    }
+//                })
+//                .subscribeOn(AndroidSchedulers.mainThread());
     }
 
     private void startHotTimeout() {
         Timber.d("Starting hot timeout.");
         m_hotTimeout = Observable
                 .timer(10, TimeUnit.SECONDS)
-                .flatMap(new Function<Long, ObservableSource<Boolean>>() {
+                .map(new Function<Long, Boolean>() {
                     @Override
-                    public ObservableSource<Boolean> apply(@NonNull Long aLong) throws Exception {
-                        return Observable.just(true);
+                    public Boolean apply(Long aLong) throws Exception {
+                        return true;
                     }
                 })
                 .subscribeOn(AndroidSchedulers.mainThread())

@@ -38,6 +38,6 @@ public class SchedulersPublisher2Example extends ExecutableExample {
             public void run() throws Exception {
                 callerIndependentSubject.onNext("2nd");
             }
-        }).subscribeOn(Schedulers.newThread()).subscribe();
+        }).subscribeOn(Schedulers.io()).subscribe();
     }
 }

@@ -27,4 +27,10 @@
         android:layout_marginTop="20dp"
         android:text="# cold vs hot" />
 
+    <TextView
+        android:id="@+id/main_start_room"
+        style="@style/TextAppearanceDefault.Button"
+        android:layout_marginTop="20dp"
+        android:text="# room db" />
+
 </LinearLayout>
