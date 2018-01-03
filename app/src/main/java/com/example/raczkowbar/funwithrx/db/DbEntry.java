@@ -11,4 +11,12 @@ public class DbEntry {
 
     @ColumnInfo(name = "info")
     public String info;
+
+    public DbEntry() {
+
+    }
+
+    public DbEntry(String info) {
+        this.info = info;
+    }
 }

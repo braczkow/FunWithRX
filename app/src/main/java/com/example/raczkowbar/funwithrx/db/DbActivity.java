@@ -17,19 +17,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
-import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 public class DbActivity extends AppCompatActivity {
-    @BindView(R.id.db_maybe_update)
+    @BindView(R.id.db_store)
     View m_maybeUpdate;
 
     @BindView(R.id.db_recycler)
@@ -52,33 +50,27 @@ public class DbActivity extends AppCompatActivity {
 
 
         m_appDao.getDbEntryAllRx()
-                //.observeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new CustomDisposableSubscriber<List<DbEntry>>() {
                     @Override
                     public void onNext(List<DbEntry> dbEntries) {
-                        Timber.d("->");
+                        Timber.d("-> update thread");
                         m_adapter.setItems(dbEntries);
                     }
                 });
     }
 
-    @OnClick(R.id.db_maybe_update)
-    public void onUpdateDbClicked() {
-        Completable.fromAction(new Action() {
+    @OnClick(R.id.db_store)
+    public void onStoreDBClicked() {
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
-            public void run() throws Exception {
-                int count = new Random().nextInt(3);
-                Timber.d("Random count: %d", count);
-                for (int i = 0; i < count; i++) {
-                    DbEntry e = new DbEntry();
-                    e.info = sdf.format(new Date());
+            public void run() {
+                Timber.d("-> store thread.");
 
-                    m_appDao.storeDbEntry(e);
-                }
-
+                DbEntry e = new DbEntry(sdf.format(new Date()));
+                m_appDao.storeDbEntry(e);
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe();
-
+        });
     }
 
     public static class DbRecyclerAdapter extends RecyclerView.Adapter<DbRecyclerAdapter.DbViewHolder> {
