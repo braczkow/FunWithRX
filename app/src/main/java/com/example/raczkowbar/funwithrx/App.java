@@ -33,7 +33,7 @@ public class App extends Application {
                 .subscribeWith(new CustomDisposableObserver<LifecycleObserver.AppState>(){
                     @Override
                     public void onNext(@NonNull LifecycleObserver.AppState appState) {
-                        Timber.d("Activity state: " + appState);
+                        Timber.d("Application state: " + appState);
                     }
                 });
     }
