@@ -19,12 +19,12 @@
         android:id="@+id/dispose_start_nodispose"
         style="@style/TextAppearanceDefault.Button"
         android:layout_marginTop="20dp"
-        android:text="Change, no dispose." />
+        android:text="Infinite while." />
 
 
     <TextView
         android:id="@+id/dispose_start_dispose"
         style="@style/TextAppearanceDefault.Button"
         android:layout_marginTop="20dp"
-        android:text="Change, do dispose." />
+        android:text="Just sleep." />
 </LinearLayout>

@@ -19,6 +19,7 @@ import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 public class DisposeActivity extends BaseActivity {
@@ -51,44 +52,48 @@ public class DisposeActivity extends BaseActivity {
 
     @OnClick(R.id.dispose_start_nodispose)
     public void onStartNodisposeClick() {
-        m_info.setText("Wait a sec..");
-        Observable.timer(5, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new CustomDisposableObserver<Long>(){
+        CustomDisposableObserver<Integer> disposable = Observable.fromArray(1, 2)
+                .observeOn(Schedulers.io())
+                .subscribeWith(new CustomDisposableObserver<Integer>() {
                     @Override
-                    public void onNext(@NonNull Long aLong) {
-                        showDialog();
-                    }
-                });
-    }
+                    public void onNext(@NonNull Integer integer) {
+                        Timber.d("onNext: " + integer);
 
-    @OnClick(R.id.dispose_start_dispose)
-    public void onStartDisposeClick() {
-        m_info.setText("Wait a sec..");
-        CustomDisposableObserver<Long> disposable = Observable.timer(5, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new CustomDisposableObserver<Long>() {
-                    @Override
-                    public void onNext(@NonNull Long aLong) {
-                        showDialog();
+                        while (true) {
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                Timber.d("Interrupted");
+                                e.printStackTrace();
+                            }
+
+                            Timber.d("In loop");
+                        }
                     }
                 });
 
         m_disposables.add(disposable);
     }
 
-    private void showDialog() {
-        Timber.d("showDialog");
+    @OnClick(R.id.dispose_start_dispose)
+    public void onStartDisposeClick() {
+        CustomDisposableObserver<Integer> disposable = Observable.fromArray(1, 2)
+                .observeOn(Schedulers.io())
+                .subscribeWith(new CustomDisposableObserver<Integer>() {
+                    @Override
+                    public void onNext(@NonNull Integer integer) {
+                        Timber.d("onNext: " + integer);
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            Timber.d("Interrupted");
+                            e.printStackTrace();
+                        }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Yes, I'm a dialog.");
-        builder.setPositiveButton("Ok, go away.", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+                        Timber.d("After sleep");
+                    }
+                });
 
-            }
-        });
-        builder.create().show();
-
+        m_disposables.add(disposable);
     }
 }
