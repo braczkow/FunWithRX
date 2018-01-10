@@ -22,13 +22,30 @@ public class FlatMapExample extends ExecutableExample {
         return "flatMap example";
     }
 
-    private int counter = 0;
-
-    Observable<String> someApi(String s) {
+    Observable<String> spaceSplitterRx(String s) {
         return Observable.fromArray(s.split(" "));
+    }
+
+    Observable<String> charSplitterRx(String s) {
+        return Observable.fromArray(s.split(""));
     }
 
     @Override
     public void execute() {
+        String task = "Split every char in this string";
+
+        spaceSplitterRx(task)
+                .flatMap(new Function<String, ObservableSource<String>>() {
+                    @Override
+                    public ObservableSource<String> apply(String s) throws Exception {
+                        return charSplitterRx(s);
+                    }
+                })
+                .subscribeWith(new CustomDisposableObserver<String>(){
+                    @Override
+                    public void onNext(@NonNull String s) {
+                        Timber.d("#: " + s);
+                    }
+                });
     }
 }
